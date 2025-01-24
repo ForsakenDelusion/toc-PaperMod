@@ -2,7 +2,7 @@
     --margin-width: 300px;
     --toc-width: 300px;
     --gap: 20px; /* 添加 gap 变量来控制两边的间距 */
-    --toc-height: 75vh;
+    --toc-height: 70vh;
 }
 
 .main {
@@ -29,7 +29,7 @@
     position: absolute;
     height: 100%;
     left: calc((var(--margin-width) - var(--gap) * 0) * -1);
-    top: calc(var(--gap) * 2);
+    top: calc(var(--gap) * 4);
     width: var(--toc-width);
 }
 
