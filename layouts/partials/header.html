@@ -43,8 +43,8 @@
 
 <header class="header">
     <nav class="nav">
-        {{/* 只在文章页面显示汉堡菜单按钮 */}}
-        {{ if .IsPage }}
+        {{/* 只在文章页面显示汉堡菜单按钮，使用 .Kind 来精确判断是否为文章页面 */}}
+        {{ if and (eq .Kind "page") (ne .Layout "search") (ne .Layout "archives") (ne .Type "page") }}
             <button class="mobile-menu-btn" aria-label="展开目录">
                 <span class="menu-icon">☰</span>
             </button>
@@ -129,7 +129,7 @@
         </div>
          
         {{- $currentPage := . }}
-        <ul id="menu" class="{{ if .IsPage }}nav-menu{{ end }}">
+        <ul id="menu" class="{{ if and (eq .Kind "page") (ne .Layout "search") (ne .Layout "archives") (ne .Type "page") }}nav-menu{{ end }}">
             {{- range site.Menus.main }}
             {{- $menu_item_url := (cond (strings.HasSuffix .URL "/") .URL (printf "%s/" .URL) ) | absLangURL }}
             {{- $page_url:= $currentPage.Permalink | absLangURL }}
@@ -187,4 +187,5 @@
         }
     });
 </script>
+
 
