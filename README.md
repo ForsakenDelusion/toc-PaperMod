@@ -2,7 +2,9 @@
 
 > 该主题根据Hugo PaperMod主题修改而来: https://github.com/adityatelange/hugo-PaperMod
 
-### [博客DEMO](https://hugo.forsakendelusion.online/)
+### 博客DEMO
+
+[点我进入](https://hugo.forsakendelusion.online/)
 
 <img width="1420" alt="image" src="https://github.com/user-attachments/assets/8935690a-3df3-4915-a31c-6a011dce7d19" />
 
@@ -38,4 +40,4 @@
 
 ### 3. 修改信息
 
-模板内部有许多个人信息需要自己配置，请耐心修改完，可以参考博主的建站教程：[https://hugo.forsakendelusion.online/posts/hugo-configuration/)
+模板内部有许多个人信息需要自己配置，请耐心修改完，可以参考博主的建站教程：https://hugo.forsakendelusion.online/posts/misc/hugo-configuration/
