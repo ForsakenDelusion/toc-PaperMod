@@ -1,0 +1,41 @@
+{{- /* Head custom content area start */ -}}
+{{ partial "math.html" . }}
+
+<!-- >>> 图片放大 >>> -->
+
+{{if .Page.Site.Params.fancybox }}
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+{{ end }}
+
+<!-- <<< 图片放大 <<< -->
+
+<!-- >>> 盘古之白 >>> -->
+
+{{- $highlight := resources.Get "js/pangu.min.js" }}
+<script>
+  (function (u, c) {
+    var d = document,
+      t = "script",
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = "{{ $highlight.RelPermalink }}";  <!-- 使用Hugo变量 -->
+    if (c) {
+      o.addEventListener("load", function (e) {
+        c(e);
+      });
+    }
+    s.parentNode.insertBefore(o, s);
+  })("{{ $highlight.RelPermalink }}", function () {
+    pangu.spacingPage();
+  });
+</script>
+
+
+<!-- <<< 盘古之白 <<< -->
+
+{{- /*     Insert any custom code (web-analytics, resources, etc.) - it will appear in the <head></head> section of every page. */ -}}
+{{- /*     Can be overwritten by partial with the same name in the global layouts. */ -}}
+{{- /* Head custom content area end */ -}}
+

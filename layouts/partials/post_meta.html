@@ -1,0 +1,56 @@
+{{/* 创建一个新的 scratch 对象用于存储元信息 */}}
+{{- $scratch := newScratch }}
+
+{{/* 获取文章的发布时间和最后修改时间 */}}
+{{ $date := .Date }}
+{{ $lastmod := .Lastmod }}
+
+{{/* 添加发布日期信息 */}}
+{{- if not .Date.IsZero -}}
+{{- $scratch.Add "meta" (slice (printf "<span title='%s'>%s</span>" 
+    (.Date) 
+    (.Date | time.Format (default "January 2, 2006" site.Params.DateFormat)))) }}
+{{- end }}
+
+{{/* 添加最后修改日期信息 
+     只在最后修改日期存在且与发布日期不是同一天时显示 */}}
+{{- if and (not .Lastmod.IsZero) (ne ($lastmod.Format "2006-01-02") ($date.Format "2006-01-02")) -}}
+{{- $scratch.Add "meta" (slice (printf "编辑于<span title='%s'>%s%s</span>" 
+    (.Lastmod) 
+    (i18n "updated") 
+    (.Lastmod | time.Format (default "January 2, 2006" site.Params.DateFormat)))) }}
+{{- end }}
+
+{{/* 如果启用了阅读时间显示，添加预计阅读时间 */}}
+{{- if (.Param "ShowReadingTime") -}}
+{{- $scratch.Add "meta" (slice (i18n "read_time" .ReadingTime | default (printf "%d min" .ReadingTime))) }}
+{{- end }}
+
+{{/* 如果启用了字数统计显示，添加文章字数 */}}
+{{- if (.Param "ShowWordCount") -}}
+{{- $scratch.Add "meta" (slice (i18n "words" .WordCount | default (printf "%d words" .WordCount))) }}
+{{- end }}
+
+{{/* 获取作者信息和标签信息 */}}
+{{- $author := (partial "author.html" .) }}
+{{- $tags := (partial "tags.html" .) }}
+
+{{/* 处理作者和标签的显示逻辑 
+     - 如果不隐藏作者，显示作者信息
+     - 如果有标签，显示标签信息 */}}
+{{- if not (.Param "hideAuthor") -}}
+    {{- if $tags }}
+        {{- $scratch.Add "meta" (slice $author $tags) -}}
+    {{- else}}
+        {{- $scratch.Add "meta" (slice $author) -}}
+    {{- end}}
+{{- else}}
+    {{- if $tags }}
+        {{- $scratch.Add "meta" (slice $tags) -}}
+    {{- end}}
+{{- end }}
+
+{{/* 使用 · 符号连接所有元信息并输出 */}}
+{{- with ($scratch.Get "meta") }}
+{{- delimit . "&nbsp;·&nbsp;" | safeHTML -}}
+{{- end -}}

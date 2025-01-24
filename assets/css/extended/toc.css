@@ -1,0 +1,108 @@
+:root {
+    --margin-width: 300px;
+    --toc-width: 300px;
+    --gap: 20px; /* 添加 gap 变量来控制两边的间距 */
+    --toc-height: 75vh;
+}
+
+.main {
+    max-width: 100%; /* 允许宽度填满父容器 */
+    margin-inline-start: auto;
+    margin-inline-end: auto;
+    margin-left: var(--margin-width); /* 保持默认宽度 */
+    margin-right: var(--margin-width); /* 保持默认宽度 */
+    line-height: var(--header-height * 0.5);
+    transition: margin 0.3s ease; /* 平滑过渡 */
+    padding: 0 var(--gap);
+}
+
+.toc {
+    margin: 0 2px 40px 2px;
+    border: 1px solid var(--border);
+    background: var(--entry);
+    border-radius: var(--radius);
+    padding: 0.4em;
+}
+
+.toc-container.wide {
+    position: absolute;
+    height: 100%;
+    left: calc((var(--margin-width) - var(--gap) * 0) * -1);
+    top: calc(var(--gap) * 2);
+    width: var(--toc-width);
+}
+
+.wide .toc {
+    position: sticky;
+    top: 70px ; /* 侧边目录顶部和顶部导航栏的空隙 */
+    border-radius: 15px;
+    width: auto;
+    height: auto;
+    margin: 45px var(--gap) 40px var(--gap);
+}
+
+.toc .details{
+    margin-left: 10px;
+    font-weight: 700;
+}
+
+.toc-container.wide .toc .inner {
+    margin: 0;
+}
+
+.active {
+    font-size: 110%;
+    font-weight: 500;
+}
+
+.toc ul {
+    list-style-type: circle;
+}
+
+.toc .inner {
+    margin: 0 0 0 20px;
+    padding: 0px 15px 15px 30px;
+    font-size: 16px;
+    max-height: var(--toc-height);
+    overflow-y: auto;
+}
+
+.toc .inner::-webkit-scrollbar-thumb {
+    background: var(--border);
+    border: 7px solid var(--theme);
+    border-radius: var(--radius);
+}
+
+.toc li ul {
+    margin-inline-start: calc(var(--gap) * 0.5);
+    list-style-type: none;
+}
+
+.toc li {
+    list-style: none;
+    font-size: 0.95rem;
+    padding-bottom: 5px;
+}
+
+.toc li a:hover {
+    color: var(--secondary);
+}
+
+/* 修改媒体查询条件 */
+@media (max-width: 900px), (max-height: 400px) {
+    .main {
+        margin-left: 10px;
+        margin-right: 10px;
+        transition: margin 0.1s ease; /* 缩短过渡时间 */
+    }
+}
+
+/* 以下代码是为了做旋转适配 */
+
+.toc-container {
+    display: none; /* 默认隐藏 */
+}
+
+.toc-container.wide {
+    display: block; 
+}

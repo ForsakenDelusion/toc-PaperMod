@@ -1,0 +1,52 @@
+/* 以下是新增的hover效果 */
+
+/* Light theme hover effects */
+.logo a:hover {
+    transition: 0.15s;
+    color: #666666;  /* 浅灰色用于亮色主题 */
+}
+
+svg:hover {
+    transition: 0.15s;
+}
+
+.social-icons a[href*='github']:hover svg {
+    color: #666666 !important;  /* 浅灰色用于亮色主题 */
+}
+
+.social-icons a[href*='linkedin']:hover svg {
+    color: #0a66c2 !important;  /* LinkedIn 蓝色保持不变 */
+}
+
+/* Dark theme hover effects */
+body.dark .logo a:hover {
+    transition: 0.15s;
+    color: #a0a0a0;  /* 更亮的灰色用于暗色主题 */
+}
+
+body.dark svg:hover {
+    transition: 0.15s;
+}
+
+body.dark .social-icons a[href*='github']:hover svg {
+    color: #a0a0a0 !important;  /* 更亮的灰色用于暗色主题 */
+}
+
+body.dark .social-icons a[href*='linkedin']:hover svg {
+    color: #3b82f6 !important;  /* 暗色主题下稍微更亮的蓝色 */
+}
+
+#moon:hover {
+    transition: 0.15s;
+    color: #1772b4;
+  }
+  
+  #sun:hover {
+    transition: 0.15s;
+    color: #f4a83a;
+  }
+
+  #menu a:hover {
+    transition: 0.15s;
+    color: grey;
+  }
