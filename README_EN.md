@@ -1,6 +1,9 @@
 Language: Chinese | [English](https://github.com/xyming108/sulv-hugo-papermod/blob/main/README_EN.md)
 > This theme is modified from the Hugo PaperMod theme: https://github.com/adityatelange/hugo-PaperMod
-### [Blog DEMO](https://hugo.forsakendelusion.online/)
+### Blog DEMO
+
+[DEMO](https://hugo.forsakendelusion.online/)
+
 <img width="1420" alt="image" src="https://github.com/user-attachments/assets/8935690a-3df3-4915-a31c-6a011dce7d19" />
 
 <img width="392" alt="image" src="https://github.com/user-attachments/assets/4124b2c3-37eb-4809-ab15-80c038d72622" />
@@ -19,4 +22,4 @@ Language: Chinese | [English](https://github.com/xyming108/sulv-hugo-papermod/bl
 ### 2. Launch the Interface
 ③ Navigate to the toc-PaperMod directory, enter `hugo server -D` in the terminal, and visit localhost:1313 in your browser to see the ready-made blog template.
 ### 3. Modify Information
-There is a lot of personal information within the template that needs to be configured. Please patiently modify it. You can refer to the blogger's site-building tutorial: [https://hugo.forsakendelusion.online/posts/hugo-configuration/]
+There is a lot of personal information within the template that needs to be configured. Please patiently modify it. You can refer to the blogger's site-building tutorial: https://hugo.forsakendelusion.online/posts/misc/hugo-configuration/
